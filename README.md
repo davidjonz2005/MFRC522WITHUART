@@ -15,5 +15,6 @@ currently i setup baud rate to 115200 but if you want to change it you have to c
 based on Mfrc522 datasheet section 8.1.3.2
 
 PCD_WriteRegister(SerialSpeedReg, 0x7A);
-	_serialClass->begin(115200);
-  and in 
+
+_serialClass->begin(115200);
+

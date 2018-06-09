@@ -9,16 +9,12 @@ void setup() {
   Serial1.begin(9600, SERIAL_8N1, SERIAL_TX_ONLY, 1);
   Serial.begin(9600);
 
-  delay(5000);
+  delay(1000);
  
  // Serial.print("test serial 1");
   mfrc522.PCD_Init();   // Init MFRC522
   ShowReaderDetails();  // Show details of PCD - MFRC522 Card Reader details
   Serial1.println(F("Scan PICC to see UID, type, and data blocks..."));
-
-
-  
-//
 }
 
 void loop() { 
@@ -34,14 +30,12 @@ void loop() {
       Serial1.println("could not read serial");
       return;
     }
-  Serial1.println("ReadCardSerial");
+ 
     // Dump debug info about the card; PICC_HaltA() is automatically called
-    mfrc522.PICC_DumpToSerial(&(mfrc522.uid));
+
  Serial1.print(F("Card UID:"));
   dump_byte_array(mfrc522.uid.uidByte, mfrc522.uid.size);
-  mfrc522.PCD_PerformSelfTest();
-// // Serial1.println("Hello World");
-// 
+
 }
 
 void ShowReaderDetails() {

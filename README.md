@@ -19,8 +19,10 @@ PCD_WriteRegister(SerialSpeedReg, 0x7A);
 
 _serialClass->begin(115200);
 
-# Debuginhg
+# Debuging
+
 I used main esp8266 uart to communicate with module as uart1 cant be used because it's rx pin already been used in esp8266 module for flash so i deided to use uart1 in tx only mode to debug programm and hence all "Serial1.println" or "Serial1.print" in "MFRC522WITHUART.cpp" and "example.ino" file are used for debugging and you can comment them all without worrying about performance.
+just keep in mind that unplug rx and tx while you are downloading to flash because UART0 is the only way to download the flash so you may have error 
 
 # Hardware 
 

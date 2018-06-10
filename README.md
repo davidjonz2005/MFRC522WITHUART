@@ -19,3 +19,24 @@ PCD_WriteRegister(SerialSpeedReg, 0x7A);
 
 _serialClass->begin(115200);
 
+# Debuginhg
+I used main esp8266 uart to communicate with module as uart1 cant be used because it's rx pin already been used in esp8266 module for flash so i deided to use uart1 in tx only mode to debug programm and hence all "Serial1.println" or "Serial1.print" in "MFRC522WITHUART.cpp" and "example.ino" file are used for debugging and you can comment them all without worrying about performance.
+
+# Hardware 
+
+I used Wemos D1 module that utilizes esp8266 and mfrc522 module
+Reader Module is by default working with SPI and so consider you have to do some modification in your reader module in order to use UART instead of SPI
+## Pins
+
+
+| RC522| Device | 
+|------|--------|
+| SDA  |  TX  	| 
+| MISO |  RX  	| 
+| 3.3V |  3.3V 	| 
+| GND  |  GND 	|
+
+
+![alt tag](https://github.com/manuelgalindo/MFRC522-UART/raw/master/wiring.jpg)
+
+
